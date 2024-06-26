@@ -110,12 +110,14 @@ function Loginform() {
             <h2>Login</h2>
             <form>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" />
+                <input type="text" id="username" name="username" placeholder='Enter your Email ID' value={loginData.email} onChange={handleChange} onBlur={handleBlur} onFocus={handleFocus} className={validationErrors.email ? 'error' : ''} /><br/><br/>
+                {validationErrors.email && <span className="error-message">{validationErrors.email}</span>}
                 <label for="password">Password</label >
-                <input type="password" id="password" name="password" />
+                <input type="password" id="password" name="password" placeholder='Enter Password' value={loginData.password} onChange={handleChange} onBlur={handleBlur} onFocus={handleFocus} className={validationErrors.password ? 'error' : ''} /><br/><br/>
+                {validationErrors.password && <span className="error-message">{validationErrors.password}</span>}
                 <a href="#" class="forgot-password">Forgot password?</a><br/><br/>
                 <button type="submit">Login</button>
-                <p>Don't have an account? <a href="#" class="signup-link">Signup</a></p>
+                <p>Don't have an account? <a href="#" class="signup-link" >Signup</a></p>
                 <a href="#" class="help-link">Need help?</a>
             </form>
         </div>
@@ -123,13 +125,13 @@ function Loginform() {
             <h2>Signup</h2>
             <form>
                 <label for="new-username">Username</label>
-                <input type="text" id="new-username" name="new-username" /> 
+                <input type="text" id="new-username" name="new-username" placeholder='Enter User Name' /> 
                 <label for="email">Email Id</label>
-                <input type="email" id="email" name="email" />
+                <input type="email" id="email" name="email" placeholder='Enter your Email' value={loginData.email} onChange={handleChange} onBlur={handleBlur} onFocus={handleFocus} className={validationErrors.email ? 'error' : ''} />
                 <label for="new-password">Create password</label>
-                <input type="password" id="new-password" name="new-password" />
+                <input type="password" id="new-password" name="new-password" placeholder='Enter Password' value={loginData.password} onChange={handleChange} onBlur={handleBlur} onFocus={handleFocus} className={validationErrors.password ? 'error' : ''} />
                 <p>By creating an account, I agree to <a href="#">Terms and Conditions</a></p>
-                <button type="submit">Create Account</button>
+                <button type="submit" onClick={handleSignup}>Create Account</button>
                 <p>Already have an account? <a href="#" class="login-link">Login</a></p>
                 <a href="#" class="help-link">Need help?</a>
             </form>
